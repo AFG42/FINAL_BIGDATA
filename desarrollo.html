@@ -4,34 +4,72 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Metodología e investigación</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --color-primary: #f97316; /* Naranja principal */
+      --color-secondary: #fb923c; /* Naranja secundario */
+      --color-accent: #fcd34d; /* Acento amarillo */
+      --color-dark: #111827;
+      --color-light: #ffffff;
+      --color-gray: #4b5563;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #fff;
-      color: #111827;
+      background-color: var(--color-light);
+      color: var(--color-dark);
     }
 
     header {
+      background-color: var(--color-primary);
       display: flex;
       justify-content: flex-end;
       padding: 20px 40px;
       font-weight: 500;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     header a {
       text-decoration: none;
-      color: #111827;
+      color: var(--color-light);
       margin-left: 30px;
+      position: relative;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    header a:hover {
+      color: var(--color-accent);
     }
 
     header a.active {
-      font-weight: 800;
+      font-weight: 600;
+    }
+
+    header a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--color-light);
+      border-radius: 3px;
     }
 
     .section {
-      padding: 50px 30px;
+      padding: 70px 30px;
       max-width: 1200px;
       margin: auto;
     }
@@ -41,6 +79,7 @@
       font-weight: 800;
       margin-bottom: 20px;
       text-align: center;
+      color: var(--color-primary);
     }
 
     .section p {
@@ -49,6 +88,8 @@
       max-width: 700px;
       margin: auto;
       line-height: 1.6;
+      color: var(--color-gray);
+      margin-bottom: 40px;
     }
 
     .bullet-points {
@@ -56,6 +97,11 @@
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
+      background-color: #fff9f4;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.08);
+      border-left: 4px solid var(--color-primary);
     }
 
     .bullet-points li {
@@ -70,6 +116,7 @@
       position: absolute;
       left: 0;
       top: 0;
+      color: var(--color-primary);
     }
 
     .grid {
@@ -84,11 +131,22 @@
     .process {
       flex: 1;
       min-width: 300px;
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f1f1f1;
+      transition: transform 0.3s ease;
+    }
+
+    .process:hover {
+      transform: translateY(-5px);
     }
 
     .process h2 {
       font-size: 24px;
       margin-bottom: 20px;
+      color: var(--color-primary);
     }
 
     .diagram {
@@ -99,18 +157,32 @@
     }
 
     .diagram div {
-      border: 2px solid #065f46;
+      border: 2px solid var(--color-primary);
       border-radius: 12px;
       padding: 15px 20px;
       text-align: center;
       min-width: 100px;
       font-size: 14px;
+      font-weight: 500;
+      background-color: #fff9f4;
+      transition: all 0.3s ease;
+    }
+
+    .diagram div:hover {
+      background-color: var(--color-primary);
+      color: var(--color-light);
+      transform: scale(1.05);
     }
 
     .map-container {
       flex: 1;
       min-width: 300px;
       text-align: center;
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f1f1f1;
     }
 
     .map-container img {
@@ -118,11 +190,19 @@
       max-width: 400px;
       border-radius: 15px;
       margin-bottom: 5px;
+      border: 3px solid var(--color-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .map-container img:hover {
+      transform: scale(1.02);
     }
 
     .map-container span {
       font-size: 13px;
-      color: #4b5563;
+      color: var(--color-gray);
+      display: block;
+      margin-top: 8px;
     }
 
     .stats {
@@ -135,21 +215,68 @@
 
     .stat {
       text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: var(--color-light);
+      border-radius: 12px;
+      min-width: 180px;
+      box-shadow: 0 8px 25px rgba(249, 115, 22, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-8px);
     }
 
     .stat h3 {
-      font-size: 36px;
+      font-size: 40px;
       margin: 0;
+      font-weight: 800;
     }
 
     .stat p {
       font-size: 16px;
-      margin: 5px 0 0;
+      margin: 10px 0 0;
+      opacity: 0.9;
+      color: var(--color-light);
+    }
+
+    footer {
+      background-color: var(--color-dark);
+      color: var(--color-light);
+      padding: 30px 40px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer p {
+      font-size: 14px;
+      opacity: 0.8;
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        justify-content: center;
+      }
+      
+      header a {
+        margin-left: 15px;
+        margin-right: 15px;
+        font-size: 14px;
+      }
+      
+      .section {
+        padding: 50px 20px;
+      }
+      
       .diagram {
         grid-template-columns: 1fr;
+      }
+
+      .stat {
+        min-width: 140px;
+        padding: 20px;
       }
     }
   </style>
@@ -202,5 +329,9 @@
       </div>
     </div>
   </div>
+
+  <footer>
+    <p>© 2025 Proyecto de Análisis de Accidentes Viales y Calidad del Aire</p>
+  </footer>
 </body>
 </html>

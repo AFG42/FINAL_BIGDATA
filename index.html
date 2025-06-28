@@ -4,30 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Predicción de Accidentes Viales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
+    :root {
+      --color-primary: #f97316; /* Naranja principal */
+      --color-secondary: #fb923c; /* Naranja secundario */
+      --color-accent: #fcd34d; /* Acento amarillo */
+      --color-dark: #111827;
+      --color-light: #ffffff;
+      --color-gray: #4b5563;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f97316; /* NARANJA */
-      color: white;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-light);
+      color: var(--color-dark);
     }
 
     header {
+      background-color: var(--color-primary);
       display: flex;
       justify-content: flex-end;
-      padding: 20px;
-      font-weight: bold;
+      padding: 20px 40px;
+      font-weight: 500;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     header a {
-      color: white;
       text-decoration: none;
+      color: var(--color-light);
       margin-left: 30px;
+      position: relative;
+      transition: all 0.3s ease;
+      font-weight: 500;
     }
 
-    .active {
-      text-decoration: underline;
+    header a:hover {
+      color: var(--color-accent);
+    }
+
+    header a.active {
+      font-weight: 600;
+    }
+
+    header a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--color-light);
+      border-radius: 3px;
     }
 
     .hero {
@@ -35,55 +74,136 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      padding: 60px 40px;
+      padding: 80px 40px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: var(--color-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://i.imgur.com/JWLz1K0.png');
+      background-size: cover;
+      opacity: 0.1;
+      z-index: 0;
     }
 
     .hero-text {
-      max-width: 550px;
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 25px;
+      line-height: 1.2;
     }
 
     .hero p {
-      font-size: 17px;
+      font-size: 18px;
       line-height: 1.6;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      opacity: 0.95;
     }
 
     .buttons {
       display: flex;
-      gap: 15px;
+      gap: 20px;
     }
 
     .btn {
-      background-color: white;
-      color: #f97316;
+      background-color: var(--color-light);
+      color: var(--color-primary);
       border: none;
-      padding: 12px 24px;
+      padding: 14px 28px;
       border-radius: 8px;
       font-size: 16px;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .btn:hover {
-      background-color: #fcd34d;
+      background-color: var(--color-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .map-section {
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .map-section h2 {
+      color: var(--color-primary);
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     #map {
-      height: 400px;
+      height: 500px;
       width: 100%;
       border-radius: 15px;
-      margin-top: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 1px solid #eee;
+    }
+
+    footer {
+      background-color: var(--color-dark);
+      color: var(--color-light);
+      padding: 30px 40px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer p {
+      font-size: 14px;
+      opacity: 0.8;
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        justify-content: center;
+      }
+      
+      header a {
+        margin-left: 15px;
+        margin-right: 15px;
+        font-size: 14px;
+      }
+      
       .hero {
         flex-direction: column;
         text-align: center;
+        padding: 60px 20px;
+      }
+      
+      .hero h1 {
+        font-size: 32px;
+      }
+      
+      .buttons {
+        justify-content: center;
+      }
+      
+      .map-section {
+        padding: 20px;
+      }
+      
+      #map {
+        height: 350px;
       }
     }
   </style>
@@ -98,8 +218,8 @@
 
   <section class="hero">
     <div class="hero-text">
-      <h1>Predicción de Accidentes Viales<br> según la Calidad del Aire en la CDMX</h1>
-      <p>Con minería de datos, análisis espacial y modelos predictivos, este proyecto busca anticipar incidentes viales en zonas críticas según la calidad del aire, mejorando la seguridad urbana.</p>
+      <h1>Predicción de Accidentes Viales según la Calidad del Aire en la CDMX</h1>
+      <p>Con minería de datos, análisis espacial y modelos predictivos, este proyecto busca anticipar incidentes viales en zonas críticas según la calidad del aire, mejorando la seguridad urbana y la gestión de recursos.</p>
       <div class="buttons">
         <button class="btn" onclick="mostrarInfo()">Más información</button>
         <button class="btn" onclick="verVideo()">Ver video</button>
@@ -107,7 +227,14 @@
     </div>
   </section>
 
-  <div id="map"></div>
+  <section class="map-section">
+    <h2>Mapa de Incidentes</h2>
+    <div id="map"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 Proyecto de Análisis de Accidentes Viales y Calidad del Aire</p>
+  </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
@@ -131,13 +258,24 @@
     const accidentes = [
       { lat: 19.428, lng: -99.13, msg: "Accidente en Av. Insurgentes" },
       { lat: 19.45, lng: -99.15, msg: "Choque en Viaducto" },
-      { lat: 19.41, lng: -99.12, msg: "Colisión en Eje Central" }
+      { lat: 19.41, lng: -99.12, msg: "Colisión en Eje Central" },
+      { lat: 19.435, lng: -99.145, msg: "Accidente en Reforma" },
+      { lat: 19.42, lng: -99.17, msg: "Incidente en Chapultepec" }
     ];
 
+    // Personalizar icono para marcadores
+    const accidenIcon = L.icon({
+      iconUrl: 'https://i.imgur.com/MK4NUzI.png', // Cambiar por un icono real
+      iconSize: [30, 30],
+      iconAnchor: [15, 30],
+      popupAnchor: [0, -30]
+    });
+
+    // Añadir marcadores al mapa
     accidentes.forEach(acc => {
       L.marker([acc.lat, acc.lng])
         .addTo(map)
-        .bindPopup(acc.msg);
+        .bindPopup(`<b>${acc.msg}</b><br>Coordenadas: ${acc.lat.toFixed(4)}, ${acc.lng.toFixed(4)}`);
     });
   </script>
 </body>

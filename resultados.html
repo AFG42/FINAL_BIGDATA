@@ -3,71 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resultados</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Resultados | Predicción de Accidentes Viales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --color-primary: #f97316; /* Naranja principal */
+      --color-secondary: #fb923c; /* Naranja secundario */
+      --color-accent: #fcd34d; /* Acento amarillo */
+      --color-dark: #111827;
+      --color-light: #ffffff;
+      --color-gray: #4b5563;
+      --color-light-bg: #f9fafb;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #111827;
+      background-color: var(--color-light);
+      color: var(--color-dark);
     }
 
     header {
+      background-color: var(--color-primary);
       display: flex;
       justify-content: flex-end;
       padding: 20px 40px;
       font-weight: 500;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     header a {
       text-decoration: none;
-      color: #111827;
+      color: var(--color-light);
       margin-left: 30px;
+      position: relative;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    header a:hover {
+      color: var(--color-accent);
     }
 
     header a.active {
-      font-weight: 800;
+      font-weight: 600;
+    }
+
+    header a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--color-light);
+      border-radius: 3px;
     }
 
     .section {
-      padding: 50px 30px;
+      padding: 70px 30px;
       max-width: 1200px;
       margin: auto;
     }
 
     h1 {
       text-align: center;
-      font-size: 36px;
-      margin-bottom: 10px;
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: var(--color-primary);
     }
 
     .section > p {
       text-align: center;
-      font-size: 16px;
-      color: #4b5563;
-      margin-bottom: 30px;
+      font-size: 18px;
+      color: var(--color-gray);
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .tabs {
       display: flex;
       justify-content: center;
-      gap: 25px;
-      margin-bottom: 40px;
+      gap: 30px;
+      margin-bottom: 50px;
       flex-wrap: wrap;
+      position: relative;
+    }
+
+    .tabs::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background-color: #e5e7eb;
     }
 
     .tabs a {
       text-decoration: none;
       font-weight: 500;
-      color: #111827;
+      color: var(--color-gray);
       border-bottom: 2px solid transparent;
-      padding-bottom: 4px;
+      padding-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .tabs a:hover {
+      color: var(--color-primary);
     }
 
     .tabs a.active {
-      color: #059669;
-      border-color: #059669;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      font-weight: 600;
     }
 
     .cards {
@@ -78,38 +140,80 @@
     }
 
     .card {
-      width: 320px;
+      width: 340px;
       border-radius: 12px;
-      background-color: #f9fafb;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+      background-color: var(--color-light);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #f1f1f1;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(249, 115, 22, 0.15);
     }
 
     .card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
+      border-bottom: 3px solid var(--color-primary);
     }
 
     .card-content {
-      padding: 20px;
+      padding: 24px;
     }
 
     .card-content h3 {
       margin: 0;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
+      color: var(--color-primary);
     }
 
     .card-content p {
+      font-size: 15px;
+      margin-top: 10px;
+      color: var(--color-gray);
+      line-height: 1.5;
+    }
+
+    footer {
+      background-color: var(--color-dark);
+      color: var(--color-light);
+      padding: 30px 40px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    footer p {
       font-size: 14px;
-      margin-top: 8px;
-      color: #374151;
+      opacity: 0.8;
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        justify-content: center;
+      }
+      
+      header a {
+        margin-left: 15px;
+        margin-right: 15px;
+        font-size: 14px;
+      }
+      
+      .section {
+        padding: 50px 20px;
+      }
+      
+      h1 {
+        font-size: 32px;
+      }
+      
       .card {
-        width: 90%;
+        width: 100%;
       }
     }
   </style>
@@ -124,32 +228,44 @@
 
   <section class="section">
     <h1>Resultados</h1>
-    <p>A continuación, se muestran los resultados obtenidos de cada método.</p>
+    <p>A continuación, se muestran los resultados obtenidos de cada método implementado para el análisis de accidentes viales y calidad del aire en la CDMX.</p>
 
     <div class="tabs">
       <a href="#" class="active">Todos</a>
       <a href="#">Spark</a>
       <a href="#">DME</a>
-      <a href="#" style="color:#059669; font-weight: 700;">K-means</a>
+      <a href="#">K-means</a>
     </div>
 
     <div class="cards">
       <div class="card">
-        <img src="https://i.imgur.com/ZgzKaJA.png" alt="Código LSTM"> <!-- Puedes cambiar por URL propia -->
+        <img src="https://i.imgur.com/ZgzKaJA.png" alt="Código LSTM">
         <div class="card-content">
           <h3>LSTM</h3>
-          <p>Método para predecir valores de temperatura a futuro</p>
+          <p>Método para predecir valores de temperatura a futuro basado en secuencias temporales de datos históricos.</p>
         </div>
       </div>
 
       <div class="card">
-        <img src="https://i.imgur.com/d45IF6I.png" alt="Gráfica LSTM"> <!-- Puedes cambiar por URL propia -->
+        <img src="https://i.imgur.com/d45IF6I.png" alt="Gráfica LSTM">
         <div class="card-content">
-          <h3>LSTM</h3>
-          <p>Método para predecir valores de temperatura a futuro</p>
+          <h3>Análisis de tendencias</h3>
+          <p>Visualización de resultados predictivos comparados con valores reales para validar la precisión del modelo.</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://i.imgur.com/ZgzKaJA.png" alt="Clustering">
+        <div class="card-content">
+          <h3>Clustering K-means</h3>
+          <p>Agrupación de zonas geográficas según patrones de accidentes y calidad del aire para identificar puntos críticos.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <footer>
+    <p>© 2025 Proyecto de Análisis de Accidentes Viales y Calidad del Aire</p>
+  </footer>
 </body>
 </html>
