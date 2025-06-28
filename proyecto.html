@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Proyecto | Análisis CDMX</title>
+  <title>Proyecto | Detalles Técnicos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     :root {
       --color-primary: #f97316; /* Naranja principal */
       --color-secondary: #fb923c; /* Naranja secundario */
       --color-accent: #fcd34d; /* Acento amarillo */
+      --color-tertiary: #ffedd5; /* Naranja suave para fondos */
       --color-dark: #111827;
       --color-light: #ffffff;
       --color-gray: #4b5563;
-      --color-footer: #292524; /* Color café oscuro para footer */
     }
     
     * {
@@ -27,6 +28,7 @@
       font-family: 'Inter', sans-serif;
       background-color: var(--color-light);
       color: var(--color-dark);
+      overflow-x: hidden;
     }
 
     header {
@@ -67,233 +69,340 @@
       border-radius: 3px;
     }
 
-    .container {
-      padding: 70px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-
-    .left {
-      flex: 1;
-      min-width: 300px;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      border: 1px solid #f1f1f1;
-    }
-
-    .left h1 {
-      font-size: 36px;
-      margin-bottom: 15px;
-      color: var(--color-primary);
+    /* Page header */
+    .page-header {
+      background-color: var(--color-tertiary);
+      padding: 80px 40px 60px;
+      text-align: center;
       position: relative;
-      padding-bottom: 15px;
+      overflow: hidden;
+      margin-bottom: 30px;
     }
 
-    .left h1::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 80px;
-      height: 3px;
-      background-color: var(--color-primary);
-      border-radius: 3px;
+    .page-header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
     }
 
-    .left p {
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
       font-size: 16px;
       line-height: 1.6;
-      margin-bottom: 30px;
-      color: var(--color-gray);
-    }
-
-    .left h2 {
-      font-size: 22px;
-      margin-bottom: 16px;
-      color: var(--color-primary);
-    }
-
-    .left ol {
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-
-    .left li {
-      margin-bottom: 15px;
       color: var(--color-gray);
       position: relative;
-      padding-left: 10px;
+      z-index: 1;
     }
 
-    .left li::marker {
-      color: var(--color-primary);
-      font-weight: bold;
-    }
-
-    .right {
-      background: linear-gradient(135deg, var(--color-accent), #a5f3fc);
-      padding: 30px;
-      border-radius: 15px;
-      flex: 1;
-      min-width: 300px;
-      box-shadow: 0 8px 25px rgba(249, 115, 22, 0.15);
-      transition: transform 0.3s ease;
-    }
-
-    .right:hover {
-      transform: translateY(-5px);
-    }
-
-    .right h3 {
-      margin-top: 0;
-      margin-bottom: 20px;
-      font-size: 22px;
-      color: var(--color-dark);
-      position: relative;
-      padding-bottom: 10px;
-    }
-
-    .right h3::after {
+    .page-header::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background-color: var(--color-dark);
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(249, 115, 22, 0.1);
+      border-radius: 50%;
+    }
+
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 250px;
+      height: 250px;
+      background-color: rgba(249, 115, 22, 0.05);
+      border-radius: 50%;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* Timeline section */
+    .timeline {
+      position: relative;
+      margin: 60px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+      transform: translateX(-50%);
       border-radius: 3px;
     }
 
-    .right ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .right li {
-      margin-bottom: 16px;
+    .timeline-title {
+      text-align: center;
+      font-size: 28px;
+      color: var(--color-primary);
+      margin-bottom: 50px;
       position: relative;
-      padding-left: 28px;
-      font-weight: 500;
-      transition: transform 0.2s ease;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--color-light);
+      padding: 0 30px;
+      z-index: 1;
     }
 
-    .right li:hover {
-      transform: translateX(5px);
+    .timeline-item {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.5s ease;
     }
 
-    .right li::before {
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+      transform: translateX(30px);
+    }
+
+    .timeline-item:nth-child(even).visible {
+      transform: translateX(0);
+    }
+
+    .timeline-content {
+      width: calc(50% - 30px);
+      background: var(--color-tertiary);
+      padding: 25px;
+      border-radius: 12px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(249, 115, 22, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(249, 115, 22, 0.15);
+    }
+
+    .timeline-content h3 {
+      color: var(--color-primary);
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-content p {
+      color: var(--color-gray);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .timeline-date {
+      position: absolute;
+      top: -12px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: var(--color-light);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(249, 115, 22, 0.2);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-date {
+      right: 20px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-date {
+      left: 20px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      z-index: 1;
+      box-shadow: 0 0 0 4px var(--color-light), 0 0 0 8px rgba(249, 115, 22, 0.2);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -40px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -40px;
+    }
+
+    /* Technical details section */
+    .tech-section {
+      background-color: var(--color-light);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      margin-bottom: 50px;
+    }
+
+    .tech-section h2 {
+      font-size: 24px;
+      color: var(--color-primary);
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--color-tertiary);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .tech-card {
+      background-color: var(--color-light);
+      border: 1px solid rgba(249, 115, 22, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .tech-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(249, 115, 22, 0.1);
+    }
+
+    .tech-card h3 {
+      font-size: 18px;
+      color: var(--color-primary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tech-card h3 i {
+      color: var(--color-secondary);
+    }
+
+    .tech-card p {
+      color: var(--color-gray);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .tech-card ul {
+      list-style: none;
+    }
+
+    .tech-card li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--color-gray);
+    }
+
+    .tech-card li::before {
       content: '•';
       position: absolute;
       left: 0;
-      color: #059669;
+      color: var(--color-secondary);
+      font-weight: bold;
+    }
+
+    /* Challenges section */
+    .challenges {
+      background: linear-gradient(135deg, var(--color-tertiary), #fff9f5);
+      padding: 60px 40px 40px;
+      border-radius: 0;
+      margin-bottom: 0;
+      position: relative;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .challenges h2 {
       font-size: 24px;
-      line-height: 1;
-    }
-
-    .icon-placeholder {
-      width: 100%;
-      height: 200px;
-      background: url('https://img.icons8.com/external-flat-icons-inmotus-design/512/external-network-data-science-flat-icons-inmotus-design.png') center/contain no-repeat;
-      margin-top: 30px;
-      border-radius: 12px;
-      transition: transform 0.3s ease;
-    }
-
-    .icon-placeholder:hover {
-      transform: scale(1.05);
-    }
-
-    /* Estilos para la sección de equipo */
-    .team-section {
-      padding: 40px;
-      margin-top: 40px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      color: var(--color-primary);
+      margin-bottom: 25px;
       text-align: center;
     }
 
-    .team-section h2 {
-      font-size: 28px;
-      color: var(--color-primary);
-      margin-bottom: 40px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .team-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background-color: var(--color-primary);
-      border-radius: 3px;
-    }
-
-    .team-cards {
-      display: flex;
-      justify-content: center;
+    .challenges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 30px;
-      flex-wrap: wrap;
     }
 
-    .team-card {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(249, 115, 22, 0.1);
-      overflow: hidden;
-      width: 280px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #f1f1f1;
+    .challenge-item {
+      background-color: var(--color-light);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.08);
+      transition: all 0.3s ease;
     }
 
-    .team-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(249, 115, 22, 0.2);
+    .challenge-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(249, 115, 22, 0.12);
     }
 
-    .team-avatar {
-      height: 140px;
-      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-      color: white;
+    .challenge-item h3 {
+      font-size: 18px;
+      color: var(--color-primary);
+      margin-bottom: 15px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      font-weight: 800;
+      gap: 10px;
     }
 
-    .team-info {
-      padding: 20px;
+    .challenge-item h3 i {
+      font-size: 20px;
     }
 
-    .team-info h3 {
-      color: var(--color-primary);
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .team-info p {
+    .challenge-item p {
       font-size: 14px;
+      line-height: 1.6;
       color: var(--color-gray);
-      line-height: 1.5;
     }
 
-    /* Footer mejorado */
+    /* Footer */
     footer {
       background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
       color: var(--color-light);
-      padding: 40px 20px;
+      padding: 80px 20px 40px;
       text-align: center;
-      margin-top: 60px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0;
+    }
+
+    .footer-wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="%23ffffff"></path></svg>');
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: rotate(180deg);
+      z-index: 1;
     }
 
     .footer-content {
@@ -302,28 +411,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
     .footer-logo {
       font-size: 24px;
       font-weight: 800;
       margin-bottom: 15px;
-    }
-
-    .footer-nav {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-
-    .footer-nav a {
-      color: var(--color-light);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-nav a:hover {
-      color: var(--color-accent);
     }
 
     .footer-divider {
@@ -338,36 +433,82 @@
       opacity: 0.8;
     }
 
-    @media (max-width: 768px) {
-      header {
-        padding: 15px 20px;
-        justify-content: center;
-      }
-      
-      header a {
-        margin-left: 15px;
-        margin-right: 15px;
-        font-size: 14px;
-      }
-      
-      .container {
-        flex-direction: column;
-        gap: 30px;
-        padding: 50px 20px;
-      }
+    /* Añadimos estilos para las ondas en las transiciones */
+    .wave-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="%23ffffff"></path></svg>');
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: rotate(180deg);
+      z-index: 1;
+    }
+    
+    .wave-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23ffffff"></path></svg>');
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+    
+    /* Actualizamos la clase de page-header para incluir las ondas */
+    .page-header {
+      background-color: var(--color-tertiary);
+      padding: 80px 40px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    
+    /* Modificamos la sección de challenges para incluir ondas */
+    .challenges {
+      background: linear-gradient(135deg, var(--color-tertiary), #fff9f5);
+      padding: 60px 40px 40px;
+      border-radius: 0;
+      margin-bottom: 0;
+      position: relative;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    
+    /* Ajustes para el footer con onda */
+    footer {
+      background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+      color: var(--color-light);
+      padding: 80px 20px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    
+    .footer-wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="%23ffffff"></path></svg>');
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: rotate(180deg);
+      z-index: 1;
+    }
 
-      .left h1 {
-        font-size: 28px;
-      }
-
-      .team-section {
-        padding: 30px 20px;
-      }
-
-      .team-card {
-        width: 100%;
-        max-width: 280px;
-      }
+    /* Clase para separación entre secciones con onda */
+    .section-divider {
+      position: relative;
+      height: 60px;
+      z-index: 1;
     }
   </style>
 </head>
@@ -379,77 +520,183 @@
     <a href="resultados.html">Resultados</a>
   </header>
 
-  <div class="container">
-    <div class="left">
-      <h1>Proyecto</h1>
-      <p>El proyecto tiene como objetivo principal desarrollar un modelo de análisis de datos que identifique patrones de tráfico y calidad del aire en diferentes delegaciones de la CDMX.</p>
+  <div class="page-header">
+    <h1>Detalles Técnicos del Proyecto</h1>
+    <p>Conoce a profundidad los aspectos técnicos, herramientas y procesos que utilizamos para desarrollar nuestro modelo predictivo de accidentes viales.</p>
+    <div class="wave-bottom"></div>
+  </div>
 
-      <h2>Descripción y objetivos</h2>
-      <ol>
-        <li>Generar un conjunto de datos de tráfico y calidad del aire.</li>
-        <li>Interpretar los resultados desde un enfoque ambiental.</li>
-        <li>Generar casos de prueba para el modelo predictivo donde la estación de monitoreo y la concentración de incidentes viales no pase de 1 km.</li>
-        <li>Considerar que 1 km a la redonda de cada estación se puede analizar los incidentes viales.</li>
-        <li>No hay información para medir el impacto ambiental de un incidente vial.</li>
-      </ol>
-      <p>El proyecto es gestionado por CONAGUA e INEGI y tiene una duración de 3 meses.</p>
+  <div class="container">
+    <div class="timeline">
+      <h2 class="timeline-title">Cronograma Detallado</h2>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <span class="timeline-date">Semana 1-2</span>
+          <span class="timeline-dot"></span>
+          <h3>Comprensión del problema</h3>
+          <p>Definición de objetivos específicos y métricas de éxito. Evaluación de recursos disponibles y estudio de proyectos similares para establecer el marco conceptual.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <span class="timeline-date">Semana 3-4</span>
+          <span class="timeline-dot"></span>
+          <h3>Recopilación de datos</h3>
+          <p>Extracción de datos de las APIs de CONAGUA e INEGI. Implementación de scripts automatizados para la recolección continua de datos de estaciones de monitoreo.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <span class="timeline-date">Semana 5-6</span>
+          <span class="timeline-dot"></span>
+          <h3>Limpieza y transformación</h3>
+          <p>Eliminación de valores atípicos y datos incompletos. Normalización y estandarización de variables. Transformación de coordenadas geográficas a formato uniforme.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <span class="timeline-date">Semana 7-9</span>
+          <span class="timeline-dot"></span>
+          <h3>Desarrollo del modelo</h3>
+          <p>Construcción de modelos predictivos utilizando algoritmos de aprendizaje supervisado. Evaluación comparativa de rendimiento entre modelos de regresión y clasificación.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <span class="timeline-date">Semana 10-11</span>
+          <span class="timeline-dot"></span>
+          <h3>Evaluación y ajuste</h3>
+          <p>Validación cruzada de modelos con datos históricos. Ajuste de hiperparámetros para optimización de resultados. Pruebas con diferentes escenarios ambientales.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <span class="timeline-date">Semana 12</span>
+          <span class="timeline-dot"></span>
+          <h3>Implementación y documentación</h3>
+          <p>Despliegue del modelo en entorno de producción. Creación de dashboard interactivo. Documentación técnica y manuales de usuario para stakeholders.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="right">
-      <h3>Plan de trabajo</h3>
-      <ul>
-        <li>Comprensión del negocio</li>
-        <li>Comprensión de los datos</li>
-        <li>Preparación de los datos</li>
-        <li>Modelado</li>
-        <li>Evaluación</li>
-        <li>Despliegue</li>
-      </ul>
-      <div class="icon-placeholder"></div>
+    <section class="tech-section">
+      <h2>Especificaciones Técnicas</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3><i class="fas fa-database"></i> Gestión de Datos</h3>
+          <p>Infraestructura y herramientas utilizadas para el almacenamiento y procesamiento de grandes volúmenes de datos.</p>
+          <ul>
+            <li>MongoDB para almacenamiento de datos geoespaciales</li>
+            <li>PostgreSQL con extensión PostGIS</li>
+            <li>AWS S3 para respaldos y datos históricos</li>
+            <li>ETL con Apache Airflow para automatización</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h3><i class="fas fa-code"></i> Lenguajes y Frameworks</h3>
+          <p>Tecnologías de programación utilizadas para implementar los modelos predictivos y análisis de datos.</p>
+          <ul>
+            <li>Python 3.9 como lenguaje principal</li>
+            <li>Pandas y NumPy para manipulación de datos</li>
+            <li>Scikit-learn para modelos de ML tradicionales</li>
+            <li>TensorFlow para redes neuronales avanzadas</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h3><i class="fas fa-chart-area"></i> Visualización</h3>
+          <p>Herramientas y bibliotecas utilizadas para crear visualizaciones interactivas y dashboard de resultados.</p>
+          <ul>
+            <li>Tableau para dashboard ejecutivo</li>
+            <li>Plotly y Dash para visualizaciones interactivas</li>
+            <li>Leaflet para mapas geoespaciales</li>
+            <li>D3.js para visualizaciones personalizadas</li>
+          </ul>
+        </div>
+
+        <div class="tech-card">
+          <h3><i class="fas fa-sitemap"></i> Algoritmos Implementados</h3>
+          <p>Modelos matemáticos y estadísticos aplicados para el análisis predictivo del proyecto.</p>
+          <ul>
+            <li>Random Forest para clasificación de riesgos</li>
+            <li>LSTM para predicción de series temporales</li>
+            <li>K-means para agrupación de zonas geográficas</li>
+            <li>XGBoost para modelado predictivo optimizado</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider">
+      <div class="wave-bottom" style="transform: translateY(-100%);"></div>
     </div>
   </div>
 
-  <!-- Nueva sección de equipo -->
-  <section class="team-section">
-    <h2>Integrantes del Equipo</h2>
-    <div class="team-cards">
-      <div class="team-card">
-        <div class="team-avatar">YR</div>
-        <div class="team-info">
-          <h3>Yahaida Michelle Ramírez Vázquez</h3>
-          <p>Análisis de datos y desarrollo de modelos predictivos</p>
-        </div>
+  <section class="challenges">
+    <div class="wave-top"></div>
+    <h2>Desafíos y Soluciones</h2>
+    <div class="challenges-grid">
+      <div class="challenge-item">
+        <h3><i class="fas fa-exclamation-triangle"></i> Datos Incompletos</h3>
+        <p>Las estaciones de monitoreo presentaban datos faltantes en periodos críticos. Implementamos técnicas de imputación basadas en series temporales y estaciones cercanas para completar información sin comprometer la integridad del análisis.</p>
       </div>
-      <div class="team-card">
-        <div class="team-avatar">AF</div>
-        <div class="team-info">
-          <h3>Fuentes Godínez Alondra</h3>
-          <p>Procesamiento de datos y visualización</p>
-        </div>
+
+      <div class="challenge-item">
+        <h3><i class="fas fa-tachometer-alt"></i> Velocidad de Procesamiento</h3>
+        <p>El volumen de datos históricos ralentizaba los análisis en tiempo real. Desarrollamos un sistema de caching inteligente que precalcula métricas frecuentes y optimizamos las consultas a la base de datos para respuestas inmediatas.</p>
       </div>
-      <div class="team-card">
-        <div class="team-avatar">GB</div>
-        <div class="team-info">
-          <h3>Basilio Hernandez Gerardo</h3>
-          <p>Implementación de algoritmos y gestión de bases de datos</p>
-        </div>
+
+      <div class="challenge-item">
+        <h3><i class="fas fa-map-marker-alt"></i> Precisión Geoespacial</h3>
+        <p>La variabilidad en la precisión GPS de los reportes de incidentes afectaba el modelo. Implementamos un algoritmo de corrección basado en la infraestructura vial conocida para ajustar coordenadas a las vías más cercanas.</p>
       </div>
     </div>
+    <div class="wave-bottom"></div>
   </section>
 
   <!-- Footer mejorado -->
   <footer>
+    <div class="footer-wave"></div>
     <div class="footer-content">
       <div class="footer-logo">Predicción de Accidentes Viales</div>
-      <div class="footer-nav">
-        <a href="index.html">Inicio</a>
-        <a href="proyecto.html">Proyecto</a>
-        <a href="desarrollo.html">Desarrollo</a>
-        <a href="resultados.html">Resultados</a>
-      </div>
       <div class="footer-divider"></div>
       <p class="footer-copyright">© 2025 Proyecto de Análisis de Accidentes Viales y Calidad del Aire</p>
     </div>
   </footer>
+
+  <script>
+    // Animación de la línea de tiempo al hacer scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      
+      function checkIfInView() {
+        for (let i = 0; i < timelineItems.length; i++) {
+          const item = timelineItems[i];
+          const rect = item.getBoundingClientRect();
+          const isInView = (
+            rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + 100
+          );
+          
+          if (isInView) {
+            item.classList.add('visible');
+          }
+        }
+      }
+      
+      // Comprobar al cargar la página
+      checkIfInView();
+      
+      // Comprobar al hacer scroll
+      window.addEventListener('scroll', checkIfInView);
+    });
+  </script>
 </body>
 </html>
