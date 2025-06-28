@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Predicción de Accidentes Viales</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f97316; /* NARANJA */
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px;
+      font-weight: bold;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+    }
+
+    .active {
+      text-decoration: underline;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 40px;
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      background-color: white;
+      color: #f97316;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #fcd34d;
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="active">Inicio</a>
+    <a href="proyecto.html">Proyecto</a>
+    <a href="desarrollo.html">Desarrollo</a>
+    <a href="resultados.html">Resultados</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Predicción de Accidentes Viales<br> según la Calidad del Aire en la CDMX</h1>
+      <p>Con minería de datos, análisis espacial y modelos predictivos, este proyecto busca anticipar incidentes viales en zonas críticas según la calidad del aire, mejorando la seguridad urbana.</p>
+      <div class="buttons">
+        <button class="btn" onclick="mostrarInfo()">Más información</button>
+        <button class="btn" onclick="verVideo()">Ver video</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Funciones de botones
+    function mostrarInfo() {
+      alert("Este proyecto analiza la relación entre calidad del aire y accidentes viales en la CDMX.");
+    }
+
+    function verVideo() {
+      window.open("https://www.youtube.com", "_blank");
+    }
+
+    // Mapa con Leaflet
+    const map = L.map('map').setView([19.4326, -99.1332], 11); // CDMX
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Simulación de marcadores de accidentes
+    const accidentes = [
+      { lat: 19.428, lng: -99.13, msg: "Accidente en Av. Insurgentes" },
+      { lat: 19.45, lng: -99.15, msg: "Choque en Viaducto" },
+      { lat: 19.41, lng: -99.12, msg: "Colisión en Eje Central" }
+    ];
+
+    accidentes.forEach(acc => {
+      L.marker([acc.lat, acc.lng])
+        .addTo(map)
+        .bindPopup(acc.msg);
+    });
+  </script>
+</body>
+</html>

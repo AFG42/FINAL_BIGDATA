@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metodología e investigación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #111827;
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px 40px;
+      font-weight: 500;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #111827;
+      margin-left: 30px;
+    }
+
+    header a.active {
+      font-weight: 800;
+    }
+
+    .section {
+      padding: 50px 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h1 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section p {
+      text-align: center;
+      font-size: 16px;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .bullet-points {
+      margin-top: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .bullet-points li {
+      list-style: none;
+      margin-bottom: 15px;
+      padding-left: 30px;
+      position: relative;
+    }
+
+    .bullet-points li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 50px;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .process {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .process h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .diagram {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .diagram div {
+      border: 2px solid #065f46;
+      border-radius: 12px;
+      padding: 15px 20px;
+      text-align: center;
+      min-width: 100px;
+      font-size: 14px;
+    }
+
+    .map-container {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .map-container img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 15px;
+      margin-bottom: 5px;
+    }
+
+    .map-container span {
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat h3 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    .stat p {
+      font-size: 16px;
+      margin: 5px 0 0;
+    }
+
+    @media (max-width: 768px) {
+      .diagram {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">Inicio</a>
+    <a href="proyecto.html">Proyecto</a>
+    <a href="desarrollo.html" class="active">Desarrollo</a>
+    <a href="resultados.html">Resultados</a>
+  </header>
+
+  <div class="section">
+    <h1>Metodología e investigación</h1>
+    <p>
+      El proyecto ejecutará un modelo predictivo para identificar patrones estacionales utilizando datos y aprendizajes técnicos, con el objetivo de apoyar la gestión urbana y de recursos.
+    </p>
+
+    <ul class="bullet-points">
+      <li>Obtener modelos de vista para identificar datos anómalos.</li>
+      <li>Desarrollar modelos para predecir temperaturas.</li>
+      <li>Considerar limitaciones como estaciones inactivas o sin cobertura.</li>
+    </ul>
+
+    <div class="grid">
+      <div class="process">
+        <h2>Descripción del proceso</h2>
+        <div class="diagram">
+          <div>Preparación</div>
+          <div>Compresión</div>
+          <div>Evaluación</div>
+          <div>Modelado</div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/CDMX_location_map.svg/800px-CDMX_location_map.svg.png" alt="Mapa de CDMX">
+        <span>19.476867, -99.131389</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <h3>6</h3>
+        <p>Meses de duración</p>
+      </div>
+      <div class="stat">
+        <h3>26 000</h3>
+        <p>Datos analizados</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

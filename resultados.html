@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #111827;
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px 40px;
+      font-weight: 500;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #111827;
+      margin-left: 30px;
+    }
+
+    header a.active {
+      font-weight: 800;
+    }
+
+    .section {
+      padding: 50px 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .section > p {
+      text-align: center;
+      font-size: 16px;
+      color: #4b5563;
+      margin-bottom: 30px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tabs a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #111827;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+
+    .tabs a.active {
+      color: #059669;
+      border-color: #059669;
+    }
+
+    .cards {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      width: 320px;
+      border-radius: 12px;
+      background-color: #f9fafb;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      margin-top: 8px;
+      color: #374151;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">Inicio</a>
+    <a href="proyecto.html">Proyecto</a>
+    <a href="desarrollo.html">Desarrollo</a>
+    <a href="resultados.html" class="active">Resultados</a>
+  </header>
+
+  <section class="section">
+    <h1>Resultados</h1>
+    <p>A continuación, se muestran los resultados obtenidos de cada método.</p>
+
+    <div class="tabs">
+      <a href="#" class="active">Todos</a>
+      <a href="#">Spark</a>
+      <a href="#">DME</a>
+      <a href="#" style="color:#059669; font-weight: 700;">K-means</a>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <img src="https://i.imgur.com/ZgzKaJA.png" alt="Código LSTM"> <!-- Puedes cambiar por URL propia -->
+        <div class="card-content">
+          <h3>LSTM</h3>
+          <p>Método para predecir valores de temperatura a futuro</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://i.imgur.com/d45IF6I.png" alt="Gráfica LSTM"> <!-- Puedes cambiar por URL propia -->
+        <div class="card-content">
+          <h3>LSTM</h3>
+          <p>Método para predecir valores de temperatura a futuro</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
