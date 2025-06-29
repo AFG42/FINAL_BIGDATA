@@ -262,6 +262,9 @@
         display: block;
       }
 
+      .extra-bottom-space {
+        margin-bottom: 120px;
+      }
     }
   </style>
 </head>
@@ -288,34 +291,31 @@
     <div class="cards">
       <div class="card">
         <img
-          src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+          src="24.png"
           alt="Gráfico de predicción">
         <div class="card-content">
           <h3>Modelo Predictivo Principal</h3>
-          <p>Implementación de Random Forest que logró un 87% de precisión en la predicción de accidentes basados en
-            datos de calidad del aire y tráfico.</p>
+          <p>Se entrenó un modelo de clasificación Random Forest utilizando variables como PM2.5, ozono y hora del día, logrando una precisión del 87% en la predicción de incidentes viales. El modelo demostró la importancia de los contaminantes como factores asociados a los accidentes.</p>
         </div>
       </div>
 
       <div class="card">
         <img
-          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+          src="22.png"
           alt="Mapa de calor">
         <div class="card-content">
           <h3>Mapa de Calor de Incidentes</h3>
-          <p>Visualización espacial que muestra las zonas con mayor concentración de accidentes y su correlación con
-            niveles de contaminantes.</p>
+          <p> Se elaboró un mapa de calor utilizando coordenadas geográficas de los incidentes y niveles de contaminación. Las zonas con mayor densidad de accidentes, como Iztapalapa, coincidieron con altos niveles de PM2.5, especialmente en horas pico.</p>
         </div>
       </div>
 
       <div class="card">
         <img
-          src="https://images.unsplash.com/photo-1606765962248-7ff407b51667?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+          src="23.png"
           alt="Análisis de patrones">
         <div class="card-content">
           <h3>Patrones Estacionales</h3>
-          <p>Análisis de tendencias que revelan un incremento del 23% en accidentes durante periodos de alta
-            concentración de PM2.5 en el aire.</p>
+          <p>El análisis temporal identificó un aumento del 23% en los accidentes viales durante épocas con mayor concentración de contaminantes. Se observaron patrones estacionales más marcados en invierno y días con mala calidad del aire.</p>
         </div>
       </div>
     </div>
@@ -331,117 +331,115 @@
   </div>
 
 
-<div class="cards" id="resultsGallery">
-  <!-- Promedios diarios -->
-  <div class="container" data-method="prom-dia">
-    <div class="row mb-4">
-      <div class="col-md-6 mb-4">
-        <img src="1.png" alt="Contaminante 1" class="img-fluid">
+  <div class="cards" id="resultsGallery">
+    <!-- Promedios diarios -->
+    <div class="container" data-method="prom-dia">
+      <div class="row mb-4">
+        <div class="col-md-6 mb-4">
+          <img src="1.png" alt="Contaminante 1" class="img-fluid">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="2.png" alt="Contaminante 2" class="img-fluid">
+        </div>
       </div>
-      <div class="col-md-6 mb-4">
-        <img src="2.png" alt="Contaminante 2" class="img-fluid">
+      <div class="row mb-4">
+        <div class="col-md-6 mb-4">
+          <img src="3.png" alt="Contaminante 3" class="img-fluid">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="4.png" alt="Contaminante 4" class="img-fluid">
+        </div>
       </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-md-6 mb-4">
-        <img src="3.png" alt="Contaminante 3" class="img-fluid">
-      </div>
-      <div class="col-md-6 mb-4">
-        <img src="4.png" alt="Contaminante 4" class="img-fluid">
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-md-6 mb-4">
-        <img src="5.png" alt="Contaminante 5" class="img-fluid">
-      </div>
-      <div class="col-md-6 mb-4">
-        <img src="6.png" alt="Contaminante 6" class="img-fluid">
-      </div>
-    </div>
-  </div>
-
-  <!-- DME Tmax -->
-  <div class="container" data-method="dme-tmax" style="display: none;">
-    <div class="row mb-4">
-      <div class="col-md-6 mb-4">
-        <img src="7.png" alt="DME Tmax - Contaminante 1" class="img-fluid">
-      </div>
-      <div class="col-md-6 mb-4">
-        <img src="8.png" alt="DME Tmax - Contaminante 2" class="img-fluid">
-      </div>
-      <div class="col-md-6 mb-4">
-        <img src="9.png" alt="DME Tmax - Contaminante 3" class="img-fluid">
-      </div>
-      <div class="col-md-6 mb-4">
-        <img src="10.png" alt="DME Tmax - Contaminante 4" class="img-fluid">
-      </div>
-      <div class="col-md-6 mb-4">
-        <img src="11.png" alt="DME Tmax - Contaminante 5" class="img-fluid">
-      </div>
-      <div class="col-md-6 mb-4">
-        <img src="12.png" alt="DME Tmax - Contaminante 6" class="img-fluid">
+      <div class="row mb-4">
+        <div class="col-md-6 mb-4">
+          <img src="5.png" alt="Contaminante 5" class="img-fluid">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="6.png" alt="Contaminante 6" class="img-fluid">
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- DME Tmin -->
-  <div class="container" data-method="dme-tmin" style="display: none;">
-    <div class="row mb-4">
-      <div class="col-md-6 mb-4">
-        <img src="13.png" alt="DME Tmin - Contaminante 1" class="img-fluid">
-      </div>
-      <div class="col-md-6 mb-4">
-        <img src="14.png" alt="DME Tmin - Contaminante 2" class="img-fluid">
+    <!-- DME Tmax -->
+    <div class="container" data-method="dme-tmax" style="display: none;">
+      <div class="row mb-4">
+        <div class="col-md-6 mb-4">
+          <img src="7.png" alt="DME Tmax - Contaminante 1" class="img-fluid">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="8.png" alt="DME Tmax - Contaminante 2" class="img-fluid">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="9.png" alt="DME Tmax - Contaminante 3" class="img-fluid">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="10.png" alt="DME Tmax - Contaminante 4" class="img-fluid">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="11.png" alt="DME Tmax - Contaminante 5" class="img-fluid">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="12.png" alt="DME Tmax - Contaminante 6" class="img-fluid">
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- KMeans -->
-  <div class="container" data-method="kmeans" style="display: none;">
-    <div class="row mb-4">
-      <div class="col-md-6 mb-4">
-        <img src="19.png" alt="K-means clustering 1" class="img-fluid">
-      </div>
-      <div class="col-md-6 mb-4">
-        <img src="20.png" alt="K-means clustering 2" class="img-fluid">
+    <!-- DME Tmin -->
+    <div class="container" data-method="dme-tmin" style="display: none;">
+      <div class="row mb-4">
+        <div class="col-md-6 mb-4">
+          <img src="13.png" alt="DME Tmin - Contaminante 1" class="img-fluid">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="14.png" alt="DME Tmin - Contaminante 2" class="img-fluid">
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- LSTM -->
-  <div class="card" data-method="lstm">
-    <img src="graficas/lstm.png" alt="LSTM">
-    <div class="card-content">
-      <h3>LSTM</h3>
-      <p>Predicción temporal con redes neuronales.</p>
+    <!-- KMeans -->
+    <div class="container" data-method="kmeans" style="display: none;">
+      <div class="row mb-4">
+        <div class="col-md-6 mb-4">
+          <img src="19.png" alt="K-means clustering 1" class="img-fluid">
+        </div>
+        <div class="col-md-6 mb-4">
+          <img src="20.png" alt="K-means clustering 2" class="img-fluid">
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+
+    <!-- LSTM -->
+    <div class="container" data-method="lstm" style="display: none;">
+      <div class="row mb-4">
+        <div class="col-md-12 mb-4">
+          <img src="21.png" alt="Predicción LSTM" class="img-fluid">
+        </div>
+      </div>
+    </div>
 
 
 
+    <script>
+      const tabs = document.querySelectorAll('.tab-link');
+      const cards = document.querySelectorAll('.card, .container');
 
-  <script>
-    const tabs = document.querySelectorAll('.tab-link');
-    const cards = document.querySelectorAll('.card, .container');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', e => {
+          e.preventDefault();
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', e => {
-        e.preventDefault();
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        const filter = tab.dataset.filter;
-        cards.forEach(card => {
-          if (filter === 'all' || card.dataset.method === filter) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
+          const filter = tab.dataset.filter;
+          cards.forEach(card => {
+            if (filter === 'all' || card.dataset.method === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
         });
       });
-    });
-  </script>
+    </script>
 
   <footer>
     <p>© 2025 Proyecto de Análisis de Accidentes Viales y Calidad del Aire</p>
